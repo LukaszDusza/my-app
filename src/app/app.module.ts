@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SalesComponent } from './sales/sales.component';
@@ -15,6 +14,7 @@ import { UsersComponent } from './users/users.component';
 import { FooterComponent } from './footer/footer.component';
 import { FiltersComponent } from './filters/filters.component';
 
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 
 
@@ -30,17 +30,20 @@ import { FiltersComponent } from './filters/filters.component';
     UsersComponent,
     FooterComponent,
     FiltersComponent,
-    
-   
    
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    Ng2GoogleChartsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

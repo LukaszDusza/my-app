@@ -19,4 +19,6 @@
       <div id="chart3"></div>
     </div>
   </div>
+  <google-chart [data]='pieChartData' (chartReady)='ready($event)'></google-chart>
+  <google-chart [data]='tableChartData' (chartReady)='ready($event)'></google-chart>
 </div>
