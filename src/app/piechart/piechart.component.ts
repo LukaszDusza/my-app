@@ -14,79 +14,75 @@ import { ChartReadyEvent } from 'ng2-google-charts';
 })
 export class PiechartComponent implements OnInit {
 
-  constructor(private service: Service) { }
+  pieChartData;
+  table;
 
+  constructor(private service: Service) { }
+  
   ngOnInit() {
-   // this.getService();
+    this.getService();
   }
 
   getService() {
     this.service.getService().subscribe(json => {
-console.log(json);
-this.getPieChart1(json);
-this.getPieChart2(json);
-this.getPieChart3(json);
+      console.log(json);
+      this.getPieChart1(json);
+      this.getPieChart2(json);
+      this.getPieChart3(json);
+      this.getCharts(json);
+      this.getTable(json);
 
     });
   }
 
-  public ready(event: ChartReadyEvent) {
-    // your logic
-    this.getService();
+  public ready(event: ChartReadyEvent) { }
+  
 
+  getCharts(json) {
 
+    let result = [];
+    result.push(['Author', 'Points']);
+    for (let i in json) {
+      result.push([json[i].authorNick, json[i].points]);
+    }
 
-
-
-
+    this.pieChartData = {
+      chartType: 'PieChart',
+      dataTable: result,
+      options: { 'title': result[0], pieHole: 0.6, },
+    };
+    console.log(result);
   }
-  
-    pieChartData =  {
-      chartType: 'BarChart',
-      dataTable: [
-        ['Task', 'Hours per Day'],
-        ['Work',     11],
-        ['Eat',      2],
-        ['Commute',  2],
-        ['Watch TV', 2],
-        ['Sleep',    7]
-      ],
-      options: {'title': 'Tasks'},
-    };
 
-    public tableChartData =  {
+  getTable(json) {
+
+    let result = [];
+    result.push(['id', 'comment', 'Author', 'rating', 'date','amount', 'Points']);
+    for (let i in json) {
+      result.push([json[i].id, json[i].comment,json[i].authorNick, json[i].rating, json[i].date, json[i].amount, json[i].points]);
+    }
+
+    this.table = {
       chartType: 'Table',
-      dataTable: [
-        ['Department', 'Revenues', 'Another column'],
-        ['Shoes', 10700, -100],
-        ['Sports', -15400, 25],
-        ['Toys', 12500, 40],
-        ['Electronics', -2100, 889],
-        ['Food', 22600, 78],
-        ['Art', 1100, 42]
-      ],
-      formatters: [
-        {
-          columns: [1, 2],
-          type: 'NumberFormat',
-          options: {
-            prefix: '&euro;', negativeColor: '#FF0000', negativeParens: true
-          }
-        }
-      ],
-      options: {title: 'Countries', allowHtml: true}
+      dataTable: result,
+      options: { 
+        'title': result[0]
+      }
     };
-  
+    console.log(result);
+  }
+
 
   getPieChart1(json) {
     let result = [];
 
 
-          result.push(['Author', 'Points']);
-          for (let i in json) {
-            result.push([json[i].authorNick, json[i].points]);
-          }
+    result.push(['Author', 'Points']);
+    for (let i in json) {
+      result.push([json[i].authorNick, json[i].points]);
+    }
 
+    // console.log(result);
 
     GoogleCharts.load(drawChart);
     function drawChart() {
@@ -128,11 +124,11 @@ this.getPieChart3(json);
   getPieChart2(json) {
     let result = [];
 
-      result.push(['Author', 'Rating']);
+    result.push(['Author', 'Rating']);
 
-      for (let i in json) {
-        result.push([json[i].authorNick, json[i].rating]);
-      }
+    for (let i in json) {
+      result.push([json[i].authorNick, json[i].rating]);
+    }
 
     GoogleCharts.load(drawChart);
     function drawChart() {
@@ -173,12 +169,12 @@ this.getPieChart3(json);
 
   getPieChart3(json) {
     let result = [];
-      // console.log(json);
-      result.push(['Author', 'Amount']);
+    // console.log(json);
+    result.push(['Author', 'Amount']);
 
-      for (let i in json) {
-        result.push([json[i].authorNick, json[i].amount]);
-      }
+    for (let i in json) {
+      result.push([json[i].authorNick, json[i].amount]);
+    }
     GoogleCharts.load(drawChart);
     function drawChart() {
       const pieChart = GoogleCharts.api.visualization.arrayToDataTable(result);
