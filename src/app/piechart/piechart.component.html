@@ -1,25 +1,48 @@
-
 <div class="container">
+  <ng4-loading-spinner> </ng4-loading-spinner>
 
+  <div class="row" id="filter-area">
+    <app-filters (linkService) = "getFilter($event)"></app-filters>
+  </div>
 
   <div class="row" id="chart-area">
-  
+
     <div class="col-sm-4" id="chart-col">
-      <label>Author vs. Rating</label>
-      <div id="chart1"></div>
+      <label>{{barChartAmountTitle}}</label>
+      <google-chart [data]='barChartAmount' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart3"></div> -->
     </div>
-  
+
     <div class="col-sm-4" id="chart-col">
-      <label>Author vs. Amount</label>
-      <div id="chart2"></div>
+      <label>{{barChartPointsTitle}}</label>
+      <google-chart [data]='barChartPoints' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart3"></div> -->
     </div>
-  
+
     <div class="col-sm-4" id="chart-col">
-      <label>Author vs. Points</label>
-      <div id="chart3"></div>
+      <label>{{pieChartPointsTitle}}</label>
+      <google-chart [data]='pieChartPoints' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart1"></div> -->
+    </div>
+
+    <div class="col-sm-4" id="chart-col">
+      <label>{{pieChartRatingTitle}}</label>
+      <google-chart [data]='pieChartRating' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart2"></div> -->
+    </div>
+
+    <div class="col-sm-4" id="chart-col">
+      <label>{{pieChartAmountTitle}}</label>
+      <google-chart [data]='pieChartAmount' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart3"></div> -->
+    </div>
+
+    <div class="col-sm-4" id="chart-col">
+      <label>{{pieChartAmountTitle2}}</label>
+      <google-chart [data]='pieChartAmount2' (chartReady)='ready($event)'></google-chart>
+      <!-- <div id="chart3"></div> -->
     </div>
   </div>
-  <google-chart [data]='pieChartData' (chartReady)='ready($event)'></google-chart>
-  <google-chart [data]='table' (chartReady)='ready($event)'></google-chart>
-  
+  <!-- <google-chart [data]='table' (chartReady)='ready($event)'></google-chart> -->
+
 </div>

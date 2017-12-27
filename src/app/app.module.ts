@@ -7,16 +7,15 @@ import { SalesComponent } from './sales/sales.component';
 import { ReportsComponent } from './reports/reports.component';
 import { PiechartComponent } from './piechart/piechart.component';
 import { AppRoutingModule } from './app.routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SnapshotComponent } from './snapshot/snapshot.component';
 import { UsersComponent } from './users/users.component';
 import { FooterComponent } from './footer/footer.component';
 import { FiltersComponent } from './filters/filters.component';
-
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
-
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 
 @NgModule({
@@ -29,8 +28,7 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     SnapshotComponent,
     UsersComponent,
     FooterComponent,
-    FiltersComponent,
-   
+    FiltersComponent,   
   ],
 
   imports: [
@@ -38,8 +36,10 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    Ng2GoogleChartsModule,
+    ReactiveFormsModule,
 
-    Ng2GoogleChartsModule
+    Ng4LoadingSpinnerModule.forRoot()
   ],
 
   providers: [],

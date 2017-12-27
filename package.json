@@ -29,6 +29,7 @@
     "google-charts": "^1.0.0",
     "jquery": "^3.2.1",
     "ng2-google-charts": "^3.3.0",
+    "ng4-loading-spinner": "^1.1.1",
     "ngx-bootstrap": "^2.0.0-rc.0",
     "popper.js": "^1.12.9",
     "primeng": "^5.0.2",

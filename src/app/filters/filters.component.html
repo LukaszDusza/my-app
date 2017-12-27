@@ -1,23 +1,26 @@
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <form>
-          <select class="custom-select">
-              <option selected>Days range</option>
-              <option value="1">last day</option>
+
+      <form [formGroup]="selectForm" (ngSubmit)="onSubmit(link)">
+        <select class="custom-select" id="days" formControlName="days">
+          <option *ngFor="let selector of selectorDays" [value]="selector">{{selector}}</option>
+          <!-- <option selected>Days range</option> -->
+          <!-- <option value="1">last day</option>
               <option value="2">7 days ago</option>
-              <option value="3">30 days ago</option>
-            </select>
-            <select class="custom-select">
-                <option selected>Month rage</option>
+              <option value="3">30 days ago</option> -->
+        </select>
+        <select class="custom-select" disabled id="month" formControlName="month">
+          <option *ngFor="let selector of selectorMonth" [value]="selector">{{selector}}</option>
+          <!-- <option selected>Month rage</option>
                 <option value="1">this month</option>
                 <option value="2">this quarter</option>
                 <option value="3">half a year</option>
-                <option value="4">this year</option>
-              </select>
-              
-      
+                <option value="4">this year</option> -->
+        </select>
+        
+
+        <button class="btn btn-outline-success" type="submit" value="submit">{{button[0]}}</button>
       </form>
 
     </div>

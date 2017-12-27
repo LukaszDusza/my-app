@@ -8,11 +8,12 @@ import { SalesComponent } from './sales/sales.component';
 
 
 const appRoutes: Routes = [
-{
-path:'',
-redirectTo:'snapshot',
-pathMatch: 'full'
-},
+
+// {
+// path:'',
+// redirectTo:'snapshot',
+// pathMatch: 'full'
+// },
   {
     path: 'snapshot',
     component: SnapshotComponent
