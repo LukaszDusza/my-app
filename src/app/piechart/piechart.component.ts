@@ -6,6 +6,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { ChartReadyEvent } from 'ng2-google-charts';
 
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { HttpErrorResponse } from '@angular/common/http';
+import 'rxjs/Rx';
+import { Jsonp } from '@angular/http/src/http';
 
 
 
@@ -50,34 +53,42 @@ getFilter(linkService: String): void {
 
 
   getServiceDefault() {
-   // let filter = this.filters.getSelections();
-   // console.log(filter);
-    let link = 'http://85.222.46.201:11780/dashboard/webapi/resource/message';
+    // let filter = this.filters.getSelections();
+    // console.log(filter);
     this.spinnerService.show();
-    this.service.getService(link).subscribe(json => {
+    let link = 'http://85.222.46.201:11780/dashboard/webapi/resource/message';
+   this.service.getService(link).retry(5).subscribe(json => {
+      
       console.log(json);
       this.getSnapshotCharts(json);
-      this.spinnerService.hide();
       // this.getPieChart1(json);
       // this.getPieChart2(json);
       // this.getPieChart3(json);
       //this.getTable(json);
-
-    });
+      
+      this.spinnerService.hide();
+    }, 
+    (error: HttpErrorResponse) => {
+      console.log(error.status)
+    }
+  );
   }
 
   getSelectedService(link) {
     this.spinnerService.show();
-    this.service.getService(link).subscribe(json => {
+    this.service.getService(link).retry(5).subscribe(json => {
       console.log(json);
       this.getSnapshotCharts(json);
       this.spinnerService.hide();
 
-    });
+    },
+    (error: HttpErrorResponse) => {
+      console.log('error status: ' + error.status)
+    }
+  );
   }
 
   public ready(event: ChartReadyEvent) { }
-
 
 
   //draw snapshot

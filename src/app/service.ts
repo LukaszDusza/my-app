@@ -21,8 +21,9 @@ export class Service {
   getService(link): Observable<Array<Messages>> {
     let selector = new FiltersComponent();
     //let link = selector.getSelections();
-    let json = this.http.get<Array<Messages>>(link)
+    let json = this.http.get<Array<Messages>>(link);
     return json;
+    
   }
 
 }
