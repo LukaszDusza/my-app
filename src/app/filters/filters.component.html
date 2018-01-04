@@ -3,7 +3,7 @@
     
     <div class="col-sm-12">
 
-      <form [formGroup]="selectForm" (ngSubmit)="onSubmit(link)">
+      <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
         <select class="custom-select" id="days" formControlName="days">
           <option *ngFor="let selector of selector.values" [value]="selector">{{selector}}</option>
           <!-- <option selected>Days range</option> -->

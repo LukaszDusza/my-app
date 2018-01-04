@@ -56,7 +56,7 @@ getFilter(linkService: String): void {
     // let filter = this.filters.getSelections();
     // console.log(filter);
     this.spinnerService.show();
-    let link = 'http://85.222.46.201:11780/dashboard/webapi/resource/message';
+    let link = 'http://89.67.4.242:11780/dashboard/webapi/resource/message';
    this.service.getService(link).retry(5).subscribe(json => {
       
       console.log(json);
@@ -93,6 +93,9 @@ getFilter(linkService: String): void {
 
   //draw snapshot
   getSnapshotCharts(json) {
+
+    let keys = Object.keys(json);
+    console.log(keys[0]);
 
     //pie
     let resultPiePoints = [];

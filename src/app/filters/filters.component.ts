@@ -43,14 +43,14 @@ export class FiltersComponent implements OnInit {
       'half a year',
       'this year'],
     links: [
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/1",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/6",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/4",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/2",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/3",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/9",
-      "http://85.222.46.201:11780/dashboard/webapi/resource/message/5"
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/1",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/6",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/4",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/2",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/3",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/9",
+      "http://89.67.4.242:11780/dashboard/webapi/resource/message/5"
     ]
 
   };
