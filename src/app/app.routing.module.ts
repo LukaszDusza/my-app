@@ -13,7 +13,7 @@ const appRoutes: Routes = [
 {
 path:'',
 redirectTo:'login',
-pathMatch: 'full'
+pathMatch: 'full',
 },
   {
     path: 'snapshot',
