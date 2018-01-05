@@ -6,16 +6,16 @@
   </button>
   <div id="navbarNavDropdown" class="navbar-collapse collapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="authService.user">
         <a routerLink="/snapshot" class="nav-link">{{menu[0]}}</a>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item" *ngIf="authService.user">
         <a routerLink="/sales" class="nav-link">{{menu[1]}}</a>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item" *ngIf="authService.user">
         <a routerLink="/reports" class="nav-link">{{menu[2]}}</a>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item" *ngIf="authService.user">
         <a routerLink="/users" class="nav-link">{{menu[3]}}</a>
       </li>
     </ul>
@@ -31,7 +31,7 @@
             Welcome&nbsp;{{authService.user.email}}&nbsp;
           LogOut</button>
       </li>
-      
+
     </ul>
   </div>
 </nav>

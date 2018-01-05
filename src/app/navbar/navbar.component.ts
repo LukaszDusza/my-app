@@ -13,12 +13,12 @@ export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthService, private router: Router) {
 
-    
+
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/snapshot'])
+    this.router.navigate(['/login'])
   }
 
   ngOnInit() {

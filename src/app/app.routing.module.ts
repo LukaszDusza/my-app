@@ -10,11 +10,11 @@ import { LoginComponent } from './auth/login/login.component';
 
 const appRoutes: Routes = [
 
-// {
-// path:'',
-// redirectTo:'snapshot',
-// pathMatch: 'full'
-// },
+{
+path:'',
+redirectTo:'login',
+pathMatch: 'full'
+},
   {
     path: 'snapshot',
     component: SnapshotComponent
