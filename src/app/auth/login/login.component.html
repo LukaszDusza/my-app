@@ -1,0 +1,28 @@
+<!-- <form (ngSubmit)="login(formData)" #formData="ngForm">
+  <div class="col-sm-6">
+    <label>e-mail</label>
+    <input ngModel type="email" name="email" required>
+    <label>password</label>
+    <input ngModel type="password" name="password" required>
+    <button type="submit" [disabled]="formData.invalid">SignIn</button>
+    <button type="submit" [disabled]="formData.invalid">Login</button>
+  </div>
+</form> -->
+
+<div class="container">
+  <div class="row" id="row">
+    <div class="col-12">
+      <div id="wraper-div" class="wrapper">
+
+        <form class="form-signin" (ngSubmit)="login(formData)" #formData="ngForm">
+          <h5 class="form-signin-heading">Please login</h5>
+          <input class="form-control" placeholder="Email Address" autofocus="" ngModel type="email" name="email" required/>
+          <input class="form-control" placeholder="Password" ngModel type="password" name="password" required/> 
+          <button class="btn btn-lg btn-default btn-block" type="submit" [disabled]="formData.invalid">Login</button>
+          <button class="btn btn-lg btn-default btn-block" type="submit" [disabled]="formData.invalid" (click)="singup(formData)">SignIn</button>
+        </form>
+
+      </div>      
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { SnapshotComponent } from './snapshot/snapshot.component';
 import { ReportsComponent } from './reports/reports.component';
 import { UsersComponent } from './users/users.component';
 import { SalesComponent } from './sales/sales.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +31,10 @@ const appRoutes: Routes = [
   {
     path: 'users',
     component:UsersComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

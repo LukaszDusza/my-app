@@ -17,6 +17,19 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthService } from './auth/auth.service';
+
+const config = {
+  apiKey: "AIzaSyAQyU-BzbJYO6ZhX-hMvqT9k5cUiulJav4",
+  authDomain: "my-app-b9185.firebaseapp.com",
+  databaseURL: "https://my-app-b9185.firebaseio.com",
+  projectId: "my-app-b9185",
+  storageBucket: "my-app-b9185.appspot.com",
+  messagingSenderId: "244648256990"
+};
 
 @NgModule({
   declarations: [
@@ -29,6 +42,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     UsersComponent,
     FooterComponent,
     FiltersComponent,   
+    LoginComponent
   ],
 
   imports: [
@@ -38,11 +52,12 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     AppRoutingModule,
     Ng2GoogleChartsModule,
     ReactiveFormsModule,
-
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
 
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 
