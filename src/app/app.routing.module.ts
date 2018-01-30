@@ -6,31 +6,41 @@ import { ReportsComponent } from './reports/reports.component';
 import { UsersComponent } from './users/users.component';
 import { SalesComponent } from './sales/sales.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthGuardsService } from './auth/auth-guards.service';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
 
 {
 path:'',
-redirectTo:'login',
+redirectTo:'home',
 pathMatch: 'full',
+},
+{
+  path: 'home',
+  component: HomeComponent
 },
   {
     path: 'snapshot',
-    component: SnapshotComponent
+    component: SnapshotComponent,
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'reports',
-    component: ReportsComponent
+    component: ReportsComponent,
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'sales',
-    component:SalesComponent
+    component:SalesComponent,
+    canActivate: [AuthGuardsService]
   },
 
   {
     path: 'users',
-    component:UsersComponent
+    component:UsersComponent,
+    canActivate: [AuthGuardsService]
   },
   {
     path: 'login',

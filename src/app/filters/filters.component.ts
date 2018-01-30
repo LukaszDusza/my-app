@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 
-
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',

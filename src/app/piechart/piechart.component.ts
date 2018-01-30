@@ -4,13 +4,9 @@ import { Headers } from '@angular/http';
 import { GoogleCharts } from 'google-charts';
 import { Subscription } from 'rxjs/Subscription';
 import { ChartReadyEvent } from 'ng2-google-charts';
-
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/Rx';
 import { Jsonp } from '@angular/http/src/http';
-
-
 
 @Component({
   selector: 'app-piechart',
@@ -38,7 +34,7 @@ export class PiechartComponent implements OnInit {
   pieChartAmountTitle2 = '';
   table;
 
-  constructor(private service?: Service, private spinnerService?: Ng4LoadingSpinnerService) { }
+  constructor(private service?: Service) { }
 
 
   ngOnInit() {
@@ -50,12 +46,10 @@ getFilter(linkService: String): void {
   this.getSelectedService(linkService);
 }
 
-
-
   getServiceDefault() {
     // let filter = this.filters.getSelections();
     // console.log(filter);
-    this.spinnerService.show();
+   // this.spinnerService.show();
     let link = 'http://89.67.4.242:11780/dashboard/webapi/resource/message';
    this.service.getService(link).retry(5).subscribe(json => {
       
@@ -66,7 +60,7 @@ getFilter(linkService: String): void {
       // this.getPieChart3(json);
       //this.getTable(json);
       
-      this.spinnerService.hide();
+     // this.spinnerService.hide();
     }, 
     (error: HttpErrorResponse) => {
       console.log(error.status)
@@ -75,11 +69,11 @@ getFilter(linkService: String): void {
   }
 
   getSelectedService(link) {
-    this.spinnerService.show();
+   // this.spinnerService.show();
     this.service.getService(link).retry(5).subscribe(json => {
       console.log(json);
       this.getSnapshotCharts(json);
-      this.spinnerService.hide();
+     // this.spinnerService.hide();
 
     },
     (error: HttpErrorResponse) => {

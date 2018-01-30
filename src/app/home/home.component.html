@@ -1,0 +1,13 @@
+<p *ngIf="authService.user">
+  You are logged in! Welcome {{authService.user.email}}.
+</p>
+
+<p *ngIf="!authService.user">
+  Please log in to Dashboard.
+</p>
+
+
+
+
+
+
